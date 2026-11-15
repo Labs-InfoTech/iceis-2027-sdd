@@ -1,0 +1,23 @@
+<h2>Vessels</h2>
+<form (ngSubmit)="save()">
+  <input name="name" placeholder="Name" [(ngModel)]="form.name" required>
+  <input name="registrationNumber" placeholder="Registration number" [(ngModel)]="form.registrationNumber" required>
+  <select name="state" [(ngModel)]="form.state" required>
+    <option value="">State</option>
+    @for (state of states; track state) {
+      <option [value]="state">{{ state }}</option>
+    }
+  </select>
+  <input name="classEntityId" type="number" placeholder="Class entity id" [(ngModel)]="form.classEntityId">
+  <button type="submit">Save</button>
+  <button type="button" (click)="clear()">Clear</button>
+</form>
+<table>
+  <tr><th>Name</th><th>Registration number</th><th>State</th><th></th></tr>
+  @for (vessel of vessels; track vessel.id) {
+    <tr>
+      <td>{{ vessel.name }}</td><td>{{ vessel.registrationNumber }}</td><td>{{ vessel.state }}</td>
+      <td><button (click)="edit(vessel)">Edit</button> <button (click)="remove(vessel)">Delete</button></td>
+    </tr>
+  }
+</table>

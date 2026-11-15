@@ -1,0 +1,16 @@
+<h2>Class entities</h2>
+<form (ngSubmit)="save()">
+  <input name="name" placeholder="Name" [(ngModel)]="form.name" required>
+  <input name="taxId" placeholder="Tax id" [(ngModel)]="form.taxId" required>
+  <button type="submit">Save</button>
+  <button type="button" (click)="clear()">Clear</button>
+</form>
+<table>
+  <tr><th>Name</th><th>Tax id</th><th></th></tr>
+  @for (classEntity of classEntities; track classEntity.id) {
+    <tr>
+      <td>{{ classEntity.name }}</td><td>{{ classEntity.taxId }}</td>
+      <td><button (click)="edit(classEntity)">Edit</button> <button (click)="remove(classEntity)">Delete</button></td>
+    </tr>
+  }
+</table>

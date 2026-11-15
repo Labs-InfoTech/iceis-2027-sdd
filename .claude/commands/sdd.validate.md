@@ -1,0 +1,1 @@
+../../sdd/commands/sdd.validate.md
